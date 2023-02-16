@@ -5,7 +5,67 @@
         <title>Covid Center</title>
         <meta name="description" content="">
         <link rel="stylesheet" href="styles.css">
+        <meta name="Authors" content="Mikiko,Suellen,Tony">
         <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap" rel="stylesheet">
+        <script type="text/javascript" src="index.js"></script>
+        
+        <script>
+            // Check the name of the columns that we want to include in the table
+            function isKeyAllowed(key) {
+                return ["rank", "Country", "Continent", "Case_Fatality_Rate", "Recovery_Proporation", "TotalCases", "NewCases", "TotalDeaths", "TotalRecovered", "ActiveCases", "Deaths_1M_pop", "TotCases_1M_Pop"].includes(key);
+
+            }
+
+            function generateTable(data) {
+                // Create the element table 
+                var table = document.createElement("table");
+                // Create the header of the table
+                var header = table.createTHead();
+                // Create a row for the header
+                var headerRow = header.insertRow();
+                // Append the name of the column to the header
+                for (var key in data[0]) {
+                    console.log(key);
+                    if (isKeyAllowed(key)) {
+                        // Create th tag to row of header
+                        var headerCell = document.createElement("th");
+                        // Include the name of column to the cell
+                        // Here we can change the name of the column if we need to by replacing "key" variable
+                        var nameColumn = key;
+                        if (nameColumn === "TotalCases"){
+                            nameColumn = "Total Cases";
+                        }
+                        else if (nameColumn === "NewCases") {
+                            nameColumn = "New Cases";
+                        }
+                        headerCell.innerHTML = nameColumn;
+                        headerRow.appendChild(headerCell);
+                    }
+
+                }
+                // Append the rows data into the table
+                for (var indexRow = 0; indexRow < data.length; indexRow++) {
+                    // Create each row
+                    var row = table.insertRow();
+                    for (var key in data[indexRow]) {
+                        if (isKeyAllowed(key)) {
+                            var valueCell = data[indexRow][key];
+                            // Do NOT add a row when it is a rank column with 0 value in cell
+                            if (key === "rank" && valueCell === 0){
+                                // Stop here and go to the next row
+                                break;
+                            }
+                            var cell = row.insertCell();
+                            // Include the value in the cell for a column
+                            cell.innerHTML = valueCell;
+                            console.log(valueCell)
+                        }
+
+                    }
+                }
+                document.getElementById("covidDataTable").appendChild(table);
+            }
+        </script>
     </head>
     <body>
         <header>
@@ -36,11 +96,19 @@
                 <h1>Dolore officia ex duis consectetur labore voluptate duis esse irure enim qui aute et.</h1><br>
                 <p>Sit eu ut commodo occaecat exercitation ut Lorem nulla ipsum. Sint proident ex quis in in proident id duis exercitation velit id duis magna. Exercitation nulla aute cupidatat dolore culpa quis consectetur ad incididunt commodo. Eu incididunt ea consequat in adipisicing tempor esse officia nostrud fugiat sit. Culpa sunt Lorem ad commodo in commodo.</p>
             </div>
-            
+            <br>
+            <br>
+            <div id="covidDataTable">
+                <!-- Data table will be appended here -->
+            </div>
         </body>
         <footer>
 
         </footer>
-        <script src="index.js" async defer></script>
+        <script>
+            // Call the fuction to generate the table
+            generateTable(data);
+        </script>
+
     </body>
 </html>

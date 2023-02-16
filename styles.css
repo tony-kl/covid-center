@@ -89,3 +89,44 @@ a.nav, .dropdown a{
   #first-container img {
     float: left;
   } 
+
+  /* Table style */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    color: #EDEDED;
+    width: 95%;
+    margin: 1rem auto;
+
+}
+
+
+table th{
+    font-size: 10px;
+    border: 1px solid #444444;
+    padding: 10px 10px;
+    background-color: #DA0037;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+
+table tr {
+    border: 1px solid #444444;
+    padding: 1rem;
+    text-align: center;
+    font-size: 13px;
+    padding: 6px 6px;
+    background: linear-gradient(#171717, #444444);
+}
+
+table td {
+    border: 1px solid #444444;
+    padding: 1rem;
+    text-align: center;
+    font-size: 13px;
+    padding: 6px 6px;
+    background: linear-gradient(#171717, #444444);
+
+}
+
