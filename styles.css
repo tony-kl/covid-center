@@ -60,7 +60,6 @@ a.nav, .dropdown a{
     z-index: 1;
     position: absolute;
     box-shadow: 1px;
-    margin-left: 120px;
 }
 
 .dropdown-content a{
@@ -82,10 +81,18 @@ a.nav, .dropdown a{
   }
 
   /* 1st-Intro */
-  #first-container{
-    clear: right;
-    margin-top: 30px;
-  }
-  #first-container img {
-    float: left;
-  } 
+#first-container{
+clear: right;
+padding-top: 50px;
+}
+#first-container img {
+float: left;
+} 
+
+
+/* Footer */
+footer{
+    height: 30px;
+    text-align: center;
+    padding-top: 300px;
+}
