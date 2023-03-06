@@ -44,6 +44,10 @@ a.nav, .dropdown a{
     color: inherit;
 }
 
+a.nav:hover, .dropdown a:hover{
+    border-bottom: 1px solid #EDEDED;
+}
+
 .dropdown{
     display: inline;
 }
@@ -74,6 +78,7 @@ a.nav, .dropdown a{
 .dropdown-content a:hover{
     background-color: #EDEDED;
     color: #171717;
+    text-shadow: none;
 }
 
 .dropdown:hover .dropdown-content {
