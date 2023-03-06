@@ -87,12 +87,26 @@ a.nav:hover, .dropdown a:hover{
 
   /* 1st-Intro */
 #first-container{
-clear: right;
-padding-top: 50px;
+    clear: right;
+    padding-top: 50px;
+    width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
 }
-#first-container img {
-float: left;
-} 
+#first-container table{
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 30px;
+}
+#first-container table td, #first-container table th{
+    padding: 3px 10px;
+}
+#first-container table tr{
+    border-bottom: solid 0.1px grey;
+}
+#first-container table tr.white-line{
+    border-bottom: solid 0.1px white;
+}
 
 
 /* Footer */
