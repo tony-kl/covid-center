@@ -85,7 +85,16 @@ a.nav:hover, .dropdown a:hover{
     display: block;
   }
 
-  /* 1st-Intro */
+/* Containers */
+#first-container, #second-container{
+    clear: right;
+    padding-top: 50px;
+    width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+  /* 1st-container */
 #first-container{
     clear: right;
     padding-top: 50px;
@@ -104,14 +113,25 @@ a.nav:hover, .dropdown a:hover{
 #first-container table tr{
     border-bottom: solid 0.1px grey;
 }
+#first-container table tr:hover{
+    background-color: #EDEDED;
+    color: #171717;
+    transition: background-color 0.3s, color 0.3s;
+}
+#first-container table tr:first-child:hover{
+    background-color: #171717;
+    color: #EDEDED;
+}
 #first-container table tr.white-line{
     border-bottom: solid 0.1px white;
 }
+
+/* 2nd Container */
 
 
 /* Footer */
 footer{
     height: 30px;
     text-align: center;
-    padding-top: 300px;
+    /* padding-top: 300px; */
 }
