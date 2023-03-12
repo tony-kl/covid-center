@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Japan</title>
+    <title>Self-Assessment</title>
     <meta name="description" content="">
     <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles/self-assessment.css">
     <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
@@ -32,17 +33,35 @@
         </nav>
     </header>
 
-    <body>
-        <div id="first-container">
-            <p>countries/Japan</p>
-        </div>
-        <div id="covidDataJapan"></div>
+    <main>
 
-    </body>
+        <section class="section-secondary">
+            <h2>COVID-19 Self-Assessment</h2>
+            
+            <h3>Have you been told that you should currently be quarantinig, isolating or staying at home?</h3>
+            <p>Could include being told by a doctor, halth care provider, public health unit, federal border agent or other govenment authority.</p>
+
+            <div class="bottom-buttons">
+                <button class="button-secondary button-previous" onclick="location.href='question_covid_test.html';">Previous Page</button>
+
+                <span>
+                    <!-- YES = go to result3 page-->
+                    <button class="button-primary button-radio button-no-margin" onclick="location.href='result2.html';">YES</button>
+                    
+                    <!-- NO = go to question_covid_test page -->
+                    <button class="button-primary button-radio button-no-margin" onclick="location.href='result3.html';">NO</button><br>
+
+                </span>
+            </div>
+
+        </section>
+
+
+    </main>
     <footer>
         <p>&copy; 2023 Trinity team</p>
     </footer>
-    <script src="../scripts/japan.js" async defer></script>
+    <script src="../index.js" async defer></script>
 </body>
 
 </html>
