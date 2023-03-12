@@ -6,8 +6,6 @@ https://www.flaticon.com/packs/coronavirus-154?word=covid&style_id=8&family_id=3
 
 
 body{
-    /* 
-    background-attachment: fixed; */
     background-color: #171717;
     margin: 0;
     font-family: 'Titillium Web', sans-serif;
@@ -37,12 +35,17 @@ header ul li{
     display: inline;
 }
 
+/* Styling of dropdown in NAV bar */
 a.nav, .dropdown a{
     text-decoration: none;
     font-size: 1.5rem;
     margin: 20px;
     font-weight: 300;
     color: inherit;
+}
+
+a.nav:hover, .dropdown a:hover{
+    border-bottom: 1px solid #EDEDED;
 }
 
 .dropdown{
@@ -75,17 +78,63 @@ a.nav, .dropdown a{
 .dropdown-content a:hover{
     background-color: #EDEDED;
     color: #171717;
+    text-shadow: none;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
   }
 
-  /* 1st-Intro */
-#first-container{
-clear: right;
-padding-top: 50px;
+/* Containers */
+#first-container, #second-container{
+    clear: right;
+    padding-top: 50px;
+    width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+/* ######### */
+/* Home page */
+/* ######### */
+
+
+/* Containers */
+#first-container, #second-container{
+    clear: right;
+    padding-top: 50px;
+    width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* First container */
+#first-container table{
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 30px;
+}
+#first-container table td, #first-container table th{
+    padding: 3px 10px;
+}
+#first-container table tr{
+    border-bottom: solid 0.1px grey;
+}
+/* On hover of each row */
+#first-container table tr:hover{
+    background-color: #EDEDED;
+    color: #171717;
+    transition: background-color 0.3s, color 0.3s;
+}
+#first-container table tr:first-child:hover{
+    background-color: #171717;
+    color: #EDEDED;
+}
+/* Styling of */
+#first-container table tr.white-line{
+    border-bottom: solid 0.1px #EDEDED;
+}
+
 #first-container img {
 float: left;
 }
@@ -133,10 +182,58 @@ float: left;
     width: 80px;
 }
 
+/* 2nd Container */
+.news-blocks{
+    background-color: #444444;
+    border-radius: 30px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.news-blocks:hover{
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+.news-blocks a{
+    text-decoration: none;
+}
+.news-blocks .news-img{
+    width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+.news-blocks .news-title-container{
+    padding: 0 15px 15px 15px;
+    color: #EDEDED;
+}
+.news-blocks .news-title-container .news-title{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.news-blocks .news-title-container p{
+    margin: 0;
+    font-size: small;
+}
+.news-big{
+    width: 49%;
+}
+.news-big .news-img{
+    height: 300px;
+}
+.news-small{
+    width: 32%;
+}
+.news-small .news-img{
+    height: 200px;
+}
+.news-small .news-title{
+    font-size: medium;
+}
 
 /* Footer */
 footer{
     height: 30px;
     text-align: center;
-    padding-top: 300px;
+    margin: 50px auto 20px auto;
+    /* padding-top: 300px; */
 }
