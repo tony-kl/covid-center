@@ -17,7 +17,7 @@ fetch(data, options)
 // Check the name of the columns that we want to include in the table
 
 function isKeyAllowed(key) {
-    return ["rank", "Country", "Continent", "Case_Fatality_Rate", "Recovery_Proporation", "TotalCases", "NewCases", "TotalDeaths", "TotalRecovered", "ActiveCases", "Deaths_1M_pop", "TotCases_1M_Pop"].includes(key);
+    return ["rank", "Country", "Continent", "TotalCases", "TotalDeaths", "TotalRecovered", "ActiveCases", "Infection_Risk"].includes(key);
 
 }
 
@@ -37,11 +37,23 @@ function generateTable(data) {
             // Include the name of column to the cell
             // Here we can change the name of the column if we need to by replacing "key" variable
             var nameColumn = key;
-            if (nameColumn === "TotalCases"){
+            if (nameColumn === "rank"){
+                nameColumn = "Global Rank";
+            }
+            else if (nameColumn === "TotalCases") {
                 nameColumn = "Total Cases";
             }
-            else if (nameColumn === "NewCases") {
-                nameColumn = "New Cases";
+            else if (nameColumn === "TotalDeaths") {
+                nameColumn = "Total Deaths";
+            }
+            else if (nameColumn === "TotalRecovered") {
+                nameColumn = "Total Recovered";
+            }
+            else if (nameColumn === "ActiveCases") {
+                nameColumn = "Active Cases";
+            }
+            else if (nameColumn === "Infection_Risk") {
+                nameColumn = "Infection Risk";
             }
             headerCell.innerHTML = nameColumn;
             headerRow.appendChild(headerCell);

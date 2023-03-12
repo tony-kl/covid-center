@@ -1,3 +1,4 @@
+// Get NEWS data from JSON
 import news from "./data/news.json" assert { type: "json" };
 
 const stringLengthLimit = 80;
@@ -19,7 +20,9 @@ const MONTHS = {
     10: 'November',
     11: 'December'
   }
-// Get all data from API
+
+
+  // Get all COVID-19 data from API
 const data = 'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/';
 
 const options = {
@@ -384,7 +387,7 @@ function generateTableNorthAmerica(data) {
             }
         }
     }
-    document.getElementById("covidDataEurope").appendChild(table);
+    document.getElementById("covidDataNorthAmerica").appendChild(table);
 
 }
 
