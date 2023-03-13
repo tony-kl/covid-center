@@ -83,58 +83,10 @@ a.nav:hover, .dropdown a:hover{
 
 .dropdown:hover .dropdown-content {
     display: block;
-  }
-
-/* ######### */
-/* Home page */
-/* ######### */
-
-
-/* Containers */
-#first-container, #second-container{
-    clear: right;
-    padding-top: 50px;
-    width: 1180px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
 }
 
-/* First container */
-#first-container table{
-    border-collapse: collapse;
-    width: 100%;
-    text-align: center;
-}
-#first-container table td, #first-container table th{
-    padding: 3px 10px;
-}
-#first-container table tr{
-    border-bottom: solid 0.1px grey;
-}
-/* On hover of each row */
-#first-container table tr:hover{
-    background-color: #EDEDED;
-    color: #171717;
-    transition: background-color 0.3s, color 0.3s;
-}
-#first-container table tr:first-child:hover{
-    background-color: #171717;
-    color: #EDEDED;
-}
-
-
-#first-container img {
-float: left;
-}
-
-/* Table Tiles Style */
-.tableTitle {
-    margin-block-end: 0;
-}
 
 /* Buttons Style */
-
 .button-primary {
     background-color: #DA0037;
     color: #FFFFFF;
@@ -176,6 +128,58 @@ float: left;
     width: 80px;
 }
 
+
+/* ######### */
+/* Home page */
+/* ######### */
+
+
+/* Containers */
+#first-container, #second-container{
+    clear: right;
+    padding-top: 50px;
+    width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+}
+/* Titles */
+.main-title{
+    color: #DA0037;
+}
+
+/* First container */
+#first-container table{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+#first-container table td, #first-container table th{
+    padding: 3px 10px;
+}
+#first-container table tr{
+    border-bottom: solid 0.1px grey;
+}
+/* On hover of each row */
+#first-container table tr:hover{
+    background-color: #EDEDED;
+    color: #DA0037;
+    transition: background-color 0.3s, color 0.3s;
+}
+#first-container table tr:first-child:hover{
+    background-color: #171717;
+    color: #EDEDED;
+}
+
+/* Table Tiles Style */
+.tableTitle {
+    margin-block-end: 0;
+    color: #ff8ca9;
+}
+td:first-child{
+    width: 200px;
+}
+
 /* 2nd Container */
 .news-blocks{
     background-color: #444444;
@@ -203,6 +207,10 @@ float: left;
 .news-blocks .news-title-container .news-title{
     margin-top: 0;
     margin-bottom: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .news-blocks .news-title-container p{
     margin: 0;
