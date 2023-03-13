@@ -2,14 +2,15 @@
 // # First container - Data table #
 // ################################
 
+import config from "./data/config.json" assert { type: "json" };
 // Get all COVID-19 data from API
-const data = 'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/';
+const data = config[0]["end-point"];
 
 const options = {
     method: 'GET',
     headers: {
-    'X-RapidAPI-Key': '1f7896f7e8msh9824baff5cae594p168600jsnfa31657bb517',
-    'X-RapidAPI-Host': 'vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com'
+    'X-RapidAPI-Key': config[0]["key"],
+    'X-RapidAPI-Host': config[0]["host"]
     }
 };
 
@@ -118,6 +119,7 @@ function generateTable(data, continent, id){
         for (var key in list[indexRow]) {
             if (isKeyAllowed(key)) {
                 var valueCell = list[indexRow][key];
+                if (key != "Country") valueCell = parseInt(valueCell).toLocaleString("en-US");
                 // Create a cell
                 var cell = row.insertCell();
                 // Include the value in the cell for a column
