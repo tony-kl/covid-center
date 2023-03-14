@@ -1,24 +1,5 @@
-const data = 'https://vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com/api/npm-covid-data/';
-
-const options = {
-    method: 'GET',
-    headers: {
-    'X-RapidAPI-Key': '1f7896f7e8msh9824baff5cae594p168600jsnfa31657bb517',
-    'X-RapidAPI-Host': 'vaccovid-coronavirus-vaccine-and-treatment-tracker.p.rapidapi.com'
-    }
-};
-
-fetch(data, options)
-    .then(res => res.json())
-    .then(json => generateTable(json))
-    .catch(err => console.error('error:' + err));
-
-// Check the name of the columns that we want to include in the table
-
-function isKeyAllowed(key) {
-    return ["rank", "Country", "Continent", "TotalCases", "TotalDeaths", "TotalRecovered", "ActiveCases", "Infection_Risk"].includes(key);
-
-}
+// Get COVID-19 data from json
+import json from "./data/covid.json" assert { type: "json" };
 
 function generateTable(data) {
     // Create the element table 
@@ -84,3 +65,6 @@ function generateTable(data) {
     }
     document.getElementById("covidDataThailand").appendChild(table);
 }
+
+// Call the function
+generateTable(json)
