@@ -2,31 +2,39 @@
 // # First container - Data table #
 // ################################
 
-import config from "./data/config.json" assert { type: "json" };
 // Get all COVID-19 data from API
-const data = config[0]["end-point"];
 
-const options = {
-    method: 'GET',
-    headers: {
-    'X-RapidAPI-Key': config[0]["key"],
-    'X-RapidAPI-Host': config[0]["host"]
-    }
-};
+//config.json contains the API keys and it is not in github, it need to be added to the data folder
+// import config from "./data/config.json" assert { type: "json" };
+// const data = config[0]["end-point"];
 
-fetch(data, options)
-    .then(res => res.json())
-    .then(json => {
-        generateTableGlobal(json);
-        generateTableAsia(json);
-        generateTableAfrica(json);
-        generateTableEurope(json);
-        generateTableNorthAmerica(json);
-        generateTableOceania(json);
-        generateTableSouthAmerica(json);
+// const options = {
+//     method: 'GET',
+//     headers: {
+//     'X-RapidAPI-Key': config[0]["key"],
+//     'X-RapidAPI-Host': config[0]["host"]
+//     }
+// };
+
+// fetch(data, options)
+//     .then(res => res.json())
+//     .then(json => {
+//         generateTableGlobal(json);
+//         generateTableAsia(json);
+//         generateTableAfrica(json);
+//         generateTableEurope(json);
+//         generateTableNorthAmerica(json);
+//         generateTableOceania(json);
+//         generateTableSouthAmerica(json);
         
-    })
-    .catch(err => console.error('error:' + err));
+//     })
+//     .catch(err => console.error('error:' + err));
+
+
+
+// Get Covid data from json
+import json from "./data/covid.json" assert { type: "json" };
+
 
 // Check the name of the columns that we want to include in the table
 
@@ -129,6 +137,19 @@ function generateTable(data, continent, id){
     }
     document.getElementById(id).appendChild(table);
 }
+
+
+// Call functions ( this part works if we get data from json)
+// If we get data from API these calls need to be commented
+generateTableGlobal(json);
+generateTableAsia(json);
+generateTableAfrica(json);
+generateTableEurope(json);
+generateTableNorthAmerica(json);
+generateTableOceania(json);
+generateTableSouthAmerica(json);
+
+
 
 
 // ###########################
