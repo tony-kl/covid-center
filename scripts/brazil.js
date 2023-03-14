@@ -1,6 +1,11 @@
 // Get COVID-19 data from json
-import json from "./data/covid.json" assert { type: "json" };
+import json from "../data/covid.json" assert { type: "json" };
 
+// Check the name of the columns that we want to include in the table
+
+function isKeyAllowed(key) {
+    return ["rank", "Country", "Continent", "TotalCases", "TotalDeaths", "TotalRecovered", "ActiveCases", "Infection_Risk"].includes(key);
+}
 
 function generateTable(data) {
     // Create the element table 
@@ -68,4 +73,4 @@ function generateTable(data) {
 }
 
 // Call the function
-generateTable(json)
+generateTable(json);
