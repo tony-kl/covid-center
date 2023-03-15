@@ -1,6 +1,6 @@
-// ################################
-// # First container - Data table #
-// ################################
+// #######################
+// # Fetch data from API #
+// #######################
 
 import config from "./data/config.json" assert { type: "json" };
 // Get all COVID-19 data from API
@@ -24,9 +24,69 @@ fetch(data, options)
         generateTableNorthAmerica(json);
         generateTableOceania(json);
         generateTableSouthAmerica(json);
-        
+        plotMap(json);
     })
     .catch(err => console.error('error:' + err));
+
+// ##################################
+// # First container - Map plotting #
+// ##################################
+function unpack(objects, key) {
+    return objects.map(function(object) { 
+        if (key == "ThreeLetterSymbol") return object[key].toUpperCase();
+        else return object[key]; 
+    });
+}
+function plotMap(rawData){
+    rawData.splice(0, 2);
+    var data = [{
+        type: 'choropleth',
+        locationmode: 'country names',
+        locations: unpack(rawData, 'Country'),
+        z: unpack(rawData, 'TotalCases'),
+        zmin: 0,
+        // // dtick: 10000,
+        marker: {
+            line: {
+                color: 'rgb(180,180,180)',
+                width: 1
+            }
+        },
+        colorbar: {
+            autotic: false,
+            title: 'Total infection cases'
+        }
+    }];
+    
+    var layout = {
+        // title: 'Total infection in each country',
+        margin: {"r":30,"t":0,"l":0,"b":20},
+        paper_bgcolor: "#171717",
+        plot_bgcolor: "#444444",
+        font: {
+            color:"white",
+            family: "Overpass",
+            size: 15
+        },
+        autosize: true,
+        geo:{
+            showframe: false,
+            showcoastlines: false
+        }
+    };
+    Plotly.newPlot("covid-map", data, layout, {showLink: false});
+}
+
+
+
+
+
+
+
+
+// ################################
+// # First container - Data table #
+// ################################
 
 // Check the name of the columns that we want to include in the table
 
