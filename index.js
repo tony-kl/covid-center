@@ -1,32 +1,44 @@
+// config.json file is a confidential file. Ask the administrator for the details
+
 // #######################
 // # Fetch data from API #
 // #######################
-
-import config from "./data/config.json" assert { type: "json" };
 // Get all COVID-19 data from API
-const data = config[0]["end-point"];
 
-const options = {
-    method: 'GET',
-    headers: {
-    'X-RapidAPI-Key': config[0]["key"],
-    'X-RapidAPI-Host': config[0]["host"]
-    }
-};
+// import config from "./data/config.json" assert { type: "json" };
+// const data = config[0]["end-point"];
 
-fetch(data, options)
-    .then(res => res.json())
-    .then(json => {
-        generateTableGlobal(json);
-        generateTableAsia(json);
-        generateTableAfrica(json);
-        generateTableEurope(json);
-        generateTableNorthAmerica(json);
-        generateTableOceania(json);
-        generateTableSouthAmerica(json);
-        plotMap(json);
-    })
-    .catch(err => console.error('error:' + err));
+// const options = {
+//     method: 'GET',
+//     headers: {
+//     'X-RapidAPI-Key': config[0]["key"],
+//     'X-RapidAPI-Host': config[0]["host"]
+//     }
+// };
+
+// fetch(data, options)
+//     .then(res => res.json())
+//     .then(json => {
+//         generateTableGlobal(json);
+//         generateTableAsia(json);
+//         generateTableAfrica(json);
+//         generateTableEurope(json);
+//         generateTableNorthAmerica(json);
+//         generateTableOceania(json);
+//         generateTableSouthAmerica(json);
+        
+//     })
+//     .catch(err => console.error('error:' + err));
+
+// ----------------------------------------------------------------------------
+
+// #############################
+// # Fetch data from JSON file #
+// #############################
+// Get Covid data from json
+import covidJson from "./data/covid.json" assert { type: "json" };
+
+// ----------------------------------------------------------------------------
 
 // ##################################
 // # First container - Map plotting #
@@ -77,12 +89,9 @@ function plotMap(rawData){
     Plotly.newPlot("covid-map", data, layout, {showLink: false});
 }
 
+plotMap(covidJson)
 
-
-
-
-
-
+// ----------------------------------------------------------------------------
 
 // ################################
 // # First container - Data table #
@@ -190,6 +199,18 @@ function generateTable(data, continent, id){
     document.getElementById(id).appendChild(table);
 }
 
+
+// Call functions ( this part works if we get data from json)
+// If we get data from API these calls need to be commented
+generateTableGlobal(covidJson);
+generateTableAsia(covidJson);
+generateTableAfrica(covidJson);
+generateTableEurope(covidJson);
+generateTableNorthAmerica(covidJson);
+generateTableOceania(covidJson);
+generateTableSouthAmerica(covidJson);
+
+// ----------------------------------------------------------------------------
 
 // ###########################
 // # Second container - News #
